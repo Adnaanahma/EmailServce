@@ -20,6 +20,13 @@ namespace Email.Api.Controllers
         {
             await _emailService.SendEmailAsync(recipientEmail, subject, message);
             return Ok("Email sent successfully");
+        } 
+
+        [HttpPost("SendMultipleMessage")]
+        public async Task<IActionResult> SendMultipleEmailAsync([FromForm] List<string> recipientEmail, [FromForm] string subject, [FromForm] string message)
+        {
+            await _emailService.SendMultipleEmailAsync(recipientEmail, subject, message);
+            return Ok("Email sent successfully");
         }
     }
 

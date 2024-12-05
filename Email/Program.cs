@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
-
+// Smtp Mimekits added
 var smtpSettings = builder.Configuration.GetSection("SmtpSettings");
 builder.Services.AddSingleton(new EmailService(smtpSettings["Host"], int.Parse(smtpSettings["Port"]), smtpSettings["User"], smtpSettings["Pass"]));
 
